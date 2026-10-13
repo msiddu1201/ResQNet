@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm --prefix client install && npm --prefix client run build && node -e \"require('fs').cpSync('client/dist', 'dist', {recursive: true})\"",
+  "buildCommand": "node build.js",
   "outputDirectory": "dist",
   "rewrites": [
     {
