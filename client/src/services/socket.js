@@ -3,7 +3,9 @@ import { io } from 'socket.io-client';
 // Connect to WebSocket server (supports environment variable for cloud deployment, fallback to local)
 const SOCKET_URL = import.meta.env.VITE_SOCKET_URL
   ? import.meta.env.VITE_SOCKET_URL.replace(/\/$/, '')
-  : (window.location.port === '3000' ? 'http://localhost:5000' : window.location.origin);
+  : (import.meta.env.PROD
+      ? 'https://resqnet-server-frxu.onrender.com'
+      : (window.location.port === '3000' ? 'http://localhost:5000' : window.location.origin));
 
 
 export const socket = io(SOCKET_URL, {

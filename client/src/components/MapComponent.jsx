@@ -29,10 +29,9 @@ export default function MapComponent({
       zoomControl: false
     });
 
-    // Sleek Dark Matter tile layer by CartoDB
-    L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-      attribution: '&copy; OpenStreetMap &copy; CARTO',
-      subdomains: 'abcd',
+    // Use OpenStreetMap's standard tiles, which do not require an API key.
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a>',
       maxZoom: 19
     }).addTo(map);
 

@@ -1,5 +1,7 @@
-const API_BASE = import.meta.env.VITE_API_URL
-  ? `${import.meta.env.VITE_API_URL.replace(/\/$/, '')}/api`
+const API_BASE_URL = import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? 'https://resqnet-server-frxu.onrender.com' : '');
+const API_BASE = API_BASE_URL
+  ? `${API_BASE_URL.replace(/\/$/, '')}/api`
   : '/api';
 
 
