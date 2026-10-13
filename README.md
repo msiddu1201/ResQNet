@@ -118,3 +118,44 @@ Use the **Simulation Bar** at the top of the interface:
 2. Click **"Animate Responder Route"**: Watches the assigned first responder navigate along the coordinates to the scene on the live map in real time!
 3. Switch between **Citizen SOS**, **Responder Unit**, and **Admin Command** tabs to see live updates sync instantaneously across all views via WebSockets.
 4. Click **"Reset Seeds"** anytime to return the grid to default clean demo state.
+
+---
+
+## ☁️ Cloud Deployment Guide
+
+### 1. Push to GitHub
+```bash
+# Link your GitHub repository
+git remote add origin https://github.com/<YOUR_USERNAME>/resqnet.git
+git push -u origin main
+```
+
+### 2. Deploy Backend to Render (Web Service)
+1. In Render Dashboard, click **New +** $\rightarrow$ **Web Service**.
+2. Connect your GitHub repository.
+3. Configure the settings:
+   - **Root Directory:** `server`
+   - **Environment:** `Node`
+   - **Build Command:** `npm install`
+   - **Start Command:** `npm start`
+4. Set Environment Variables:
+   - `PORT`: `10000`
+   - `NODE_ENV`: `production`
+   - `CLIENT_URL`: `https://<YOUR-VERCEL-APP>.vercel.app,http://localhost:3000` *(or `*` during initial testing)*
+5. Deploy and copy your Render service URL (e.g., `https://resqnet-server.onrender.com`).
+
+*(Alternatively, connect your repository with the included [`render.yaml`](file:///c:/resqnet/render.yaml) blueprint for automated setup).*
+
+### 3. Deploy Frontend to Vercel
+1. In Vercel Dashboard, click **Add New...** $\rightarrow$ **Project**.
+2. Import your GitHub repository.
+3. Configure the settings:
+   - **Root Directory:** Edit and select `client`
+   - **Framework Preset:** `Vite`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+4. Set Environment Variables:
+   - `VITE_API_URL`: `https://<YOUR-RENDER-URL>.onrender.com`
+   - `VITE_SOCKET_URL`: `https://<YOUR-RENDER-URL>.onrender.com`
+5. Click **Deploy**. Your emergency network is now live worldwide!
+
