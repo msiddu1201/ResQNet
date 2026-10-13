@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "ResQNet - Real-Time Emergency Response & Resource Dispatch Network",
   "scripts": {
+    "vercel-build": "node build.js",
     "build": "node build.js",
     "install-all": "npm install && npm --prefix server install && npm --prefix client install",
     "server": "npm --prefix server start",
