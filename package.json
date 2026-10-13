@@ -1,0 +1,25 @@
+{
+  "name": "resqnet",
+  "version": "1.0.0",
+  "description": "ResQNet - Real-Time Emergency Response & Resource Dispatch Network",
+  "scripts": {
+    "install-all": "npm install && npm --prefix server install && npm --prefix client install",
+    "server": "npm --prefix server start",
+    "client": "npm --prefix client dev",
+    "dev": "concurrently \"npm --prefix server run dev\" \"npm --prefix client dev\"",
+    "start": "node server/src/server.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "keywords": [
+    "emergency-response",
+    "real-time",
+    "socket.io",
+    "dispatch",
+    "react",
+    "express"
+  ],
+  "author": "ResQNet Team",
+  "license": "MIT"
+}
