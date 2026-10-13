@@ -2,9 +2,12 @@ services:
   - type: web
     name: resqnet-server
     runtime: node
+    plan: free
     rootDir: server
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
     envVars:
       - key: NODE_ENV
         value: production

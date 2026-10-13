@@ -36,6 +36,17 @@ const io = new Server(server, {
 app.set('io', io);
 setupSocketIO(io);
 
+// Root status endpoint
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ONLINE',
+    service: 'ResQNet Dispatch Engine',
+    version: '1.0.0',
+    healthCheck: '/api/health',
+    timestamp: new Date().toISOString()
+  });
+});
+
 // Health check endpoint
 app.get('/api/health', (req, res) => {
   res.json({
