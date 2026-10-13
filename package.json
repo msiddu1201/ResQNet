@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "ResQNet - Real-Time Emergency Response & Resource Dispatch Network",
   "scripts": {
-    "build": "npm --prefix client run build",
+    "build": "npm --prefix client install && npm --prefix client run build && node -e \"require('fs').cpSync('client/dist', 'dist', {recursive: true})\"",
     "install-all": "npm install && npm --prefix server install && npm --prefix client install",
     "server": "npm --prefix server start",
     "client": "npm --prefix client dev",

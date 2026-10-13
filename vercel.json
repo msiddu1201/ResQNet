@@ -1,8 +1,6 @@
 {
-  "version": 2,
-  "framework": "vite",
-  "buildCommand": "npm --prefix client install && npm --prefix client run build",
-  "outputDirectory": "client/dist",
+  "buildCommand": "npm --prefix client install && npm --prefix client run build && node -e \"require('fs').cpSync('client/dist', 'dist', {recursive: true})\"",
+  "outputDirectory": "dist",
   "rewrites": [
     {
       "source": "/(.*)",
